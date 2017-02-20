@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
+    <string name="paint">Paint</string>
+    <string name="flag">Flag</string>
+    <string name="clear_view">Clear</string>
 </resources>

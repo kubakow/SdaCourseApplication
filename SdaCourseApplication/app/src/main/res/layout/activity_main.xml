@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_from_left">
+
+<RelativeLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,4 +21,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
 </RelativeLayout>
+
+ <LinearLayout
+     android:background="@android:color/holo_orange_light"
+     android:layout_gravity="start"
+     android:orientation="vertical"
+     android:layout_width="200dp"
+     android:layout_height="match_parent">
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/rysowanie"
+         android:background="?attr/selectableItemBackground"
+         android:paddingBottom="10dp"
+         android:paddingTop="10dp"
+         android:text="@string/paint"
+         android:textStyle="italic"/>
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingBottom="10dp"
+         android:paddingTop="10dp"
+         android:id="@+id/polish_flag"
+         android:text="@string/flag"/>
+
+
+
+ </LinearLayout>
+</android.support.v4.widget.DrawerLayout>
