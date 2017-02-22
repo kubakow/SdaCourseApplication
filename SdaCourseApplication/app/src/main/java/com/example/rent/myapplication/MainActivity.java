@@ -17,12 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rent.myapplication.drawingPackage.MainDrawingActivity;
+import com.example.rent.myapplication.toDoPackage.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static final String NOTES_KEY = "notes";
     private DrawerLayout drawerLayout;
 private ActionBarDrawerToggle drawerToggle;
 private TextView paintText;
+private TextView toDoListText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,14 @@ private TextView paintText;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), MainDrawingActivity.class);
+                startActivity(intent);
+            }
+        });
+        toDoListText = (TextView) findViewById(R.id.to_do_list_link);
+        toDoListText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ToDoListActivity.class);
                 startActivity(intent);
             }
         });

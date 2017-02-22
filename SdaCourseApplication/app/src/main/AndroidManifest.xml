@@ -18,6 +18,7 @@
         <activity android:name=".drawingPackage.MainDrawingActivity">
         </activity>
         <activity android:name=".galleryPackage.GalleryActivity"/>
+        <activity android:name=".toDoPackage.ToDoListActivity"/>
     </application>
 
 </manifest>
