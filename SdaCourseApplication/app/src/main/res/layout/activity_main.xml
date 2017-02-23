@@ -18,10 +18,24 @@
     tools:context="com.example.rent.myapplication.MainActivity">
 
     <TextView
+        android:id="@+id/my_notes_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:padding="16dp"
+        android:text="My Notes: " />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:id="@+id/my_note_edittext"/>
 
+    <Button
+        android:layout_below="@id/my_note_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save note"
+        android:id="@+id/save_note_button"/>
 </RelativeLayout>
 
  <LinearLayout
@@ -48,6 +62,13 @@
          android:paddingTop="10dp"
          android:id="@+id/polish_flag"
          android:text="@string/flag"/>
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingBottom="10dp"
+         android:paddingTop="10dp"
+         android:id="@+id/to_do_list_link"
+         android:text="@string/to_do_list"/>
 
 
 
