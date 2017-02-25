@@ -3,6 +3,7 @@ package com.example.rent.myapplication.toDoPackage;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +18,7 @@ import com.example.rent.myapplication.R;
  */
 
 public class ToDoListActivity extends AppCompatActivity implements OnItemCheckStateChange{
-
+    private ActionMode actionMode;
     private ToDoListAdapter toDoListAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
             @Override
             public void onClick(View v) {
                 toDoListAdapter.addItem(editText.getText().toString());
+                editText.setText("");
             }
         });
     }
@@ -43,22 +45,57 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.delete_to_do: {
-                toDoListAdapter.deleteCheckedItems();
-                break;
-            }
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch(item.getItemId()){
+//            case R.id.delete_to_do: {
+//                toDoListAdapter.deleteCheckedItems();
+//                break;
+//            }
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public void onItemCheckStateChange(int checkedItemsCount) {
         if(checkedItemsCount>0) {
-            getSupportActionBar().setTitle("Check items: " + checkedItemsCount);
-        }else{ getSupportActionBar().setTitle("To do list");}
+            createActionModeBar();
+            actionMode.setTitle("Check items: " + checkedItemsCount);
+        }else{ getSupportActionBar().setTitle("To do list");
+            if(actionMode!=null)
+                actionMode.finish();}
         }
+
+    private void createActionModeBar() {
+        actionMode = startSupportActionMode(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                getMenuInflater().inflate(R.menu.to_do_action,menu);
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                switch(item.getItemId()){
+                    case R.id.delete_to_do_action_mode: {
+                        toDoListAdapter.deleteCheckedItems();
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                actionMode = null;
+            }
+        });
+    }
 }
