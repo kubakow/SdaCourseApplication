@@ -33,7 +33,7 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
         recyclerView.setAdapter(toDoListAdapter );
         final EditText editText = (EditText) findViewById(R.id.to_do_edittext);
         toDoListAdapter.setCheckListener(this);
-        Button addButton = (Button) findViewById(R.id.to_do_add_button);;
+        Button addButton = (Button) findViewById(R.id.to_do_add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,8 +106,8 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(ADAPTER_DATA, new ArrayList<>(toDoListAdapter.getItems()));
     }
 

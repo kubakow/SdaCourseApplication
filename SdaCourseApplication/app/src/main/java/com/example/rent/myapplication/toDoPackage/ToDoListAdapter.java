@@ -21,9 +21,7 @@ import java.util.List;
 
 public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyViewHolder> {
 
-    public ToDoListAdapter(List<ListItem> items){
-        this.items = items;
-    }
+
 
     private List<ListItem> items = new ArrayList<>();
     private OnItemCheckStateChange checkListener;

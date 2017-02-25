@@ -69,7 +69,13 @@
          android:paddingTop="10dp"
          android:id="@+id/to_do_list_link"
          android:text="@string/to_do_list"/>
-
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingBottom="10dp"
+         android:paddingTop="10dp"
+         android:id="@+id/quiz_app_link"
+         android:text="QUIZ"/>
 
 
  </LinearLayout>
