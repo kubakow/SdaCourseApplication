@@ -1,6 +1,7 @@
 package com.example.rent.myapplication.toDoPackage;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 
 import com.example.rent.myapplication.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by RENT on 2017-02-22.
  */
@@ -20,6 +23,7 @@ import com.example.rent.myapplication.R;
 public class ToDoListActivity extends AppCompatActivity implements OnItemCheckStateChange{
     private ActionMode actionMode;
     private ToDoListAdapter toDoListAdapter;
+    private static final String ADAPTER_DATA = "data_from_list";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +64,10 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
     @Override
     public void onItemCheckStateChange(int checkedItemsCount) {
         if(checkedItemsCount>0) {
+            if(actionMode == null)
             createActionModeBar();
-            actionMode.setTitle("Check items: " + checkedItemsCount);
-        }else{ getSupportActionBar().setTitle("To do list");
+            actionMode.setTitle(getResources().getQuantityString(R.plurals.check_items_plural, checkedItemsCount, checkedItemsCount));
+        }else{ getSupportActionBar().setTitle(R.string.to_do_list);
             if(actionMode!=null)
                 actionMode.finish();}
         }
@@ -94,8 +99,21 @@ public class ToDoListActivity extends AppCompatActivity implements OnItemCheckSt
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
+                toDoListAdapter.deselectAllItems();
                 actionMode = null;
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putParcelableArrayList(ADAPTER_DATA, new ArrayList<>(toDoListAdapter.getItems()));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        toDoListAdapter.setItems(savedInstanceState.<ListItem>getParcelableArrayList(ADAPTER_DATA));
     }
 }
