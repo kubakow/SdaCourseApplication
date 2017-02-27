@@ -6,4 +6,10 @@
     <string name="flag">Flag</string>
     <string name="clear_view">Clear</string>
     <string name="to_do_list">To do list</string>
+    <string name="check_items">"%d items"</string>
+    <string name="to_do_list_name">To do list</string>
+    <plurals name="check_items_plural">
+        <item quantity="one">%d item</item>
+        <item quantity="few">%d items</item>
+    </plurals>
 </resources>

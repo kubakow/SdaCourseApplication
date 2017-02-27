@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Moja Aplikacja</string>
+    <string name="open">OTWÓRZ</string>
+    <string name="close">ZAMKNIJ</string>
+    <string name="paint">Rysowanka</string>
+    <string name="flag">Flaga</string>
+    <string name="clear_view">Wyczyść</string>
+    <string name="to_do_list">List zadań</string>
+    <string name="check_items">"%d elementów"</string>
+    <plurals name="check_items_plural">
+        <item quantity="one">%d element</item>
+        <item quantity="few">%d elementy</item>
+        <item quantity="many">%d elementów</item>
+    </plurals>
+</resources>

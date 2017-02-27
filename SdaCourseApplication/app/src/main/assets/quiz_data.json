@@ -1,0 +1,14 @@
+{
+"questionsCount": 1,
+"questions":[
+{"id":1,
+ "text": "Jak ma na imię główny bohater 07 Zgłoś się?",
+ [
+ {"isCorrect":"true","text":"Porucznik"},
+ {"isCorrect":"false","text":"Arek"},
+ {"isCorrect":"false","text":"Czarek"},
+ {"isCorrect":"false","text":"Antoni"}
+ ]
+ }
+ ]
+ }

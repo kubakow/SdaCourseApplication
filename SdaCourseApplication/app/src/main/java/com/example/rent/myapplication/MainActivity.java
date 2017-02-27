@@ -2,7 +2,6 @@ package com.example.rent.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,9 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rent.myapplication.drawingPackage.MainDrawingActivity;
+import com.example.rent.myapplication.quizPackage.QuizActivity;
 import com.example.rent.myapplication.toDoPackage.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 private ActionBarDrawerToggle drawerToggle;
 private TextView paintText;
 private TextView toDoListText;
+    private TextView quizText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,15 @@ private TextView toDoListText;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ToDoListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        quizText = (TextView) findViewById(R.id.quiz_app_link);
+        quizText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), QuizActivity.class);
                 startActivity(intent);
             }
         });

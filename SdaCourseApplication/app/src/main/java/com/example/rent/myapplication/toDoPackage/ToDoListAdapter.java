@@ -41,7 +41,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final ListItem listItem = items.get(position);
     holder.textView.setText(items.get(position).getText());
-        holder.checkBox.setChecked(listItem.isChecked());
+
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -51,6 +51,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
                 }
             }
         });
+        holder.checkBox.setChecked(listItem.isChecked());
     }
 
     public int getCheckedItemsCount(){
@@ -78,6 +79,13 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
             checkBox = (CheckBox) itemView.findViewById(R.id.to_do_single_item_checkbox);
         }
     }
+    public void deselectAllItems(){
+        for(ListItem item : items){
+            if(item.isChecked())
+            item.setChecked(false);
+        }
+        notifyDataSetChanged();
+    }
     public void addItem(String string){
         items.add(new ListItem(string));
         notifyDataSetChanged();
@@ -93,5 +101,12 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
         if(checkListener!=null){
             checkListener.onItemCheckStateChange(getCheckedItemsCount());
         }
+    }
+    public List<ListItem> getItems(){
+        return items;
+    }
+    public void setItems(List<ListItem> items){
+        this.items = items;
+        notifyDataSetChanged();
     }
 }
