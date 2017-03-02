@@ -14,5 +14,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         AboutMe me = new AboutMe();
         binding.setAboutMe(me);
+
     }
 }
