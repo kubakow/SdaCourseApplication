@@ -32,4 +32,6 @@ dependencies {
     compile 'com.squareup:seismic:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'info.android15.nucleus:nucleus:4.0.0'
+    compile 'info.android15.nucleus:nucleus-support-v7:4.0.0'
 }

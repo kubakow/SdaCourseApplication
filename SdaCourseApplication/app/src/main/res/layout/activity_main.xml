@@ -84,6 +84,13 @@
          android:paddingTop="10dp"
          android:id="@+id/soothsayer_app_link"
          android:text="SOOTHSAYER"/>
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingBottom="10dp"
+         android:paddingTop="10dp"
+         android:id="@+id/mvp_app_link"
+         android:text="MVP"/>
 
 
  </LinearLayout>

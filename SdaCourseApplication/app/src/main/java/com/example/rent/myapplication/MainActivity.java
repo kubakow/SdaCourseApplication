@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.rent.myapplication.drawingPackage.MainDrawingActivity;
+import com.example.rent.myapplication.mvpPackage.MvpActivity;
 import com.example.rent.myapplication.quizPackage.QuizActivity;
 import com.example.rent.myapplication.toDoPackage.ToDoListActivity;
 
@@ -26,6 +27,7 @@ private TextView paintText;
 private TextView toDoListText;
     private TextView quizText;
     private TextView soothsayerText;
+    private TextView mvpText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,15 @@ private TextView toDoListText;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), FortuneActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mvpText = (TextView) findViewById(R.id.mvp_app_link);
+        mvpText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MvpActivity.class);
                 startActivity(intent);
             }
         });

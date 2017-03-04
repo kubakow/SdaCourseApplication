@@ -22,7 +22,8 @@
         <activity android:name=".toDoPackage.ToDoListActivity" />
         <activity android:name=".quizPackage.QuizActivity" />
         <activity android:name=".FortuneActivity" />
-        <activity android:name=".quizPackage.SummaryQuiz"></activity>
+        <activity android:name=".quizPackage.SummaryQuiz" />
+        <activity android:name=".mvpPackage.MvpActivity"></activity>
     </application>
 
 </manifest>
