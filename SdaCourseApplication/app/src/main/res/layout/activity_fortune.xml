@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_fortune"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rent.myapplication.FortuneActivity">
+
+    <TextView
+        android:id="@+id/shake_ask"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shake it off"
+        android:textSize="24sp"
+        android:textColor="@android:color/darker_gray" />
+
+
+    <FrameLayout
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/fortune_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+       <TextView
+           android:layout_gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/chinese_saying"
+           android:textSize="24sp"
+           android:textColor="@android:color/white"
+           />
+
+
+    </FrameLayout>
+
+
+</FrameLayout>

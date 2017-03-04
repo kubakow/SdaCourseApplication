@@ -12,6 +12,10 @@ public class QuizQuestion {
     private String question;
     private List<SingleAnswer> answers;
 
+    public List<SingleAnswer> getAnswers() {
+        return answers;
+    }
+
     public QuizQuestion(int id, String question, List<SingleAnswer> answers) {
         this.id = id;
         this.question = question;
@@ -35,7 +39,4 @@ public class QuizQuestion {
     }
 
 }
-
-
-
 

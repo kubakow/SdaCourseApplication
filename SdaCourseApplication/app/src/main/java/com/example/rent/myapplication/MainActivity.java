@@ -25,6 +25,7 @@ private ActionBarDrawerToggle drawerToggle;
 private TextView paintText;
 private TextView toDoListText;
     private TextView quizText;
+    private TextView soothsayerText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,15 @@ private TextView toDoListText;
                 startActivity(intent);
             }
         });
+        soothsayerText = (TextView) findViewById(R.id.soothsayer_app_link);
+        soothsayerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), FortuneActivity.class);
+                startActivity(intent);
+            }
+        });
+
         final EditText editText = (EditText) findViewById(R.id.my_note_edittext);
         editText.setText(readText());
         Button saveButton = (Button) findViewById(R.id.save_note_button);

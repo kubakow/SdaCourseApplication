@@ -1,14 +1,49 @@
 {
-"questionsCount": 1,
-"questions":[
-{"id":1,
- "text": "Jak ma na imię główny bohater 07 Zgłoś się?",
- [
- {"isCorrect":"true","text":"Porucznik"},
- {"isCorrect":"false","text":"Arek"},
- {"isCorrect":"false","text":"Czarek"},
- {"isCorrect":"false","text":"Antoni"}
+ "questionsCount": 2,
+ "questions": [
+  {
+   "id": 1,
+   "question": "Jak ma na imię główny bohater 07 Zgłoś się?",
+   "answers": [
+    {
+     "isCorrect": "true",
+     "text": "Porucznik"
+    },
+    {
+     "isCorrect": "false",
+     "text": "Arek"
+    },
+    {
+     "isCorrect": "false",
+     "text": "Czarek"
+    },
+    {
+     "isCorrect": "false",
+     "text": "Antoni"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "question": "Wiecej niz jedno zwierze?",
+   "answers": [
+    {
+     "isCorrect": "false",
+     "text": "Owca"
+    },
+    {
+     "isCorrect": "true",
+     "text": "Stado"
+    },
+    {
+     "isCorrect": "false",
+     "text": "Lama"
+    },
+    {
+     "isCorrect": "false",
+     "text": "Krowa"
+    }
+   ]
+  }
  ]
- }
- ]
- }
+}
