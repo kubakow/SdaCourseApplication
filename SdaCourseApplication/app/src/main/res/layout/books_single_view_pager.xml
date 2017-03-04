@@ -3,11 +3,18 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <ImageView
         android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="500dp"
         android:id="@+id/single_pager_book_from_library"/>
 
-
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read"
+        android:layout_gravity="right|top"
+        android:id="@+id/book_is_read"/>
 </FrameLayout>

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.rent.myapplication.books.BooksActivity;
 import com.example.rent.myapplication.drawingPackage.MainDrawingActivity;
 import com.example.rent.myapplication.quizPackage.QuizActivity;
 import com.example.rent.myapplication.toDoPackage.ToDoListActivity;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 private ActionBarDrawerToggle drawerToggle;
 private TextView paintText;
 private TextView toDoListText;
+    private TextView booksText;
     private TextView quizText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,15 @@ private TextView toDoListText;
                 startActivity(intent);
             }
         });
+        booksText = (TextView) findViewById(R.id.books_app_link);
+        booksText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), BooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
         final EditText editText = (EditText) findViewById(R.id.my_note_edittext);
         editText.setText(readText());
         Button saveButton = (Button) findViewById(R.id.save_note_button);

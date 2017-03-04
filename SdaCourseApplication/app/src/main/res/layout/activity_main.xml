@@ -78,5 +78,14 @@
          android:text="QUIZ"/>
 
 
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingBottom="10dp"
+         android:paddingTop="10dp"
+         android:id="@+id/books_app_link"
+         android:text="BOOKS"/>
+
+
  </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

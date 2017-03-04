@@ -21,6 +21,7 @@
         <activity android:name=".galleryPackage.GalleryActivity"/>
         <activity android:name=".toDoPackage.ToDoListActivity"/>
         <activity android:name=".quizPackage.QuizActivity"/>
+        <activity android:name=".books.BooksActivity"/>
     </application>
 
 </manifest>
