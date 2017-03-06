@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,15 +15,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rent.myapplication.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Created by RENT on 2017-02-25.
@@ -37,6 +41,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     public static final String INCORRECT_ANSWERS = "incorrect_answers";
     private int correctAnswers=0;
     private int incorrectAnswers=0;
+    private QuizContainer quizContainer;
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,10 +85,27 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         objectAnimator.start();
-        String json;
-        json = loadQuizJson();
-        QuizContainer quizContainer = new Gson().fromJson(json, QuizContainer.class);
 
+        new AsyncTask<String, Void, QuizContainer>(){
+            @Override
+            protected QuizContainer doInBackground(String... params) {
+                String json;
+                json = loadQuizJsonFromURL(params[0]);
+                quizContainer = new Gson().fromJson(json, QuizContainer.class);
+                return quizContainer;
+            }
+
+            @Override
+            protected void onPostExecute(QuizContainer quizContainer) {
+                displayResultOnScreen(quizContainer);
+            }
+        }.execute("https://sdacourse-cf739.firebaseio.com/sdacourse-cf739-export.json");
+
+
+    }
+
+    private void displayResultOnScreen(QuizContainer quizContainer) {
+        this.quizContainer = quizContainer;
         TextView questionText = (TextView) findViewById(R.id.quiz_layout_question);
         questionText.setText(quizContainer.getQuestions().get(currentQuestionIndex).getQuestion());
         questionText.setTextSize(20);
@@ -115,10 +139,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         answerDbutton.setOnClickListener(this);
     }
 
-    private String loadQuizJson(){
+    private String loadQuizJsonFromURL(String stringUrl){
         StringBuilder buf = new StringBuilder();
         try {
-            InputStream json = getAssets().open("quiz_data.json");
+            URL url = new URL(stringUrl);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            InputStream json = httpURLConnection.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(json, "UTF-8"));
             String str;
             while((str = in.readLine())!= null){
@@ -130,6 +156,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
         return buf.toString();
     }
+
     private void playMusic(String uri){
 
         MediaPlayer player = new MediaPlayer();
